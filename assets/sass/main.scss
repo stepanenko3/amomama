@@ -1544,6 +1544,69 @@ img {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
+    position: relative;
+
+    &>* {
+        z-index: 2;
+    }
+
+    &--inline {
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        padding: 40px 50px;
+        margin-bottom: 40px;
+        box-shadow: 0 0 8px rgba(33, 33, 33, 0.06);
+        border-radius: 3px;
+
+        @media(max-width: map-get($grid-breakpoints, xl)) {
+            padding: 30px 20px;
+        }
+
+        @media(max-width: map-get($grid-breakpoints, md) - 1) {
+            flex-direction: column;
+            justify-content: center;
+        }
+    }
+
+    &__bg {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: -30px;
+        height: 80%;
+        margin: auto 0;
+        z-index: 0;
+        pointer-events: none;
+
+        svg {
+            width: 97px;
+            height: 120px;
+        }
+
+        svg, svg * {
+            fill: #ffe5ec;
+        }
+    }
+
+    &--inline & {
+        &__email {
+            width: auto;
+            flex-grow: 1;
+            margin: 20px 50px;
+
+            @media(max-width: map-get($grid-breakpoints, xl)) {
+                margin: 20px 25px;
+            }
+        }
+
+        &__header {
+            margin-bottom: 5px;
+        }
+    }
+
+    &__i {}
 
     &__header {
         color: #e31c50;
@@ -1594,6 +1657,7 @@ img {
         line-height: 27px;
         letter-spacing: 0.17px;
         cursor: pointer;
+        white-space: nowrap;
 
         svg {
             margin-left: 9px;
@@ -2134,35 +2198,41 @@ img {
         margin-bottom: 15px;
     }
 
+    &:not(&--big) {
+        &__row {
+            .article {
+                &__header {
+                    font-size: 15px;
+                    line-height: 22px;
+                }
+
+                &__image {
+                    margin-bottom: 5px;
+                }
+
+                &__line {
+
+                    a,
+                    span {
+                        line-height: 30px;
+                    }
+                }
+            }
+        }
+    }
+
     &__row {
         display: flex;
         align-items: stretch;
         justify-content: space-between;
         margin: 0 -7px;
 
-        @media(max-width: map-get($grid-breakpoints, sm)) {
+        @media(max-width: map-get($grid-breakpoints, md)) {
             flex-wrap: wrap;
         }
 
         .article {
             margin: 0 7px 20px;
-
-            &__header {
-                font-size: 15px;
-                line-height: 22px;
-            }
-
-            &__image {
-                margin-bottom: 5px;
-            }
-
-            &__line {
-
-                a,
-                span {
-                    line-height: 30px;
-                }
-            }
         }
     }
 }
@@ -2230,6 +2300,10 @@ img {
         display: block;
         margin-top: 30px;
 
+        @media(max-width: map-get($grid-breakpoints, sm)) {
+            padding: 15px 20px;
+        }
+
         &__header {
             display: flex;
             align-items: center;
@@ -2247,6 +2321,12 @@ img {
                 border-radius: 50%;
                 background: #e31c50 center no-repeat / cover;
                 margin-right: 20px;
+
+                @media(max-width: map-get($grid-breakpoints, sm)) {
+                    margin-right: 10px;
+                    width: 45px;
+                    height: 45px;
+                }
             }
 
             &__name {
@@ -2295,6 +2375,10 @@ img {
             font-weight: 300;
             line-height: 29px;
             letter-spacing: 0.47px;
+
+            @media(max-width: map-get($grid-breakpoints, md)) {
+                font-size: 16px;
+            }
         }
     }
 
@@ -2303,6 +2387,10 @@ img {
         align-items: center;
         justify-content: space-between;
         padding-top: 30px;
+
+        @media(max-width: map-get($grid-breakpoints, sm)) {
+            flex-direction: column;
+        }
 
         &__button {
             background-color: #e31c50;
@@ -2323,6 +2411,10 @@ img {
             display: flex;
             align-items: center;
             cursor: pointer;
+
+            @media(max-width: map-get($grid-breakpoints, sm)) {
+                margin-top: 10px;
+            }
 
             &__indicator {
                 position: relative;
@@ -2490,6 +2582,113 @@ img {
             svg * {
                 fill: #aeaeae;
             }
+        }
+    }
+}
+
+.bio {
+    &__image {
+        box-shadow: 0 20px 59px rgba(50, 50, 50, 0.69);
+        width: 100%;
+
+        img {
+            display: block;
+            width: 100%;
+        }
+    }
+
+    &__list {
+        td:first-child {
+            color: #1f1f1f;
+            font-size: 18px;
+            line-height: 39px;
+            font-weight: 700;
+            letter-spacing: 0.18px;
+            padding-right: 30px;
+        }
+
+        td:last-child {
+            color: #1f1f1f;
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 39px;
+            letter-spacing: 0.18px;
+
+            a {
+                color: #e31c50;
+                font-weight: 600;
+                letter-spacing: 0.18px;
+            }
+        }
+    }
+
+    &__header {
+        color: #1f1f1f;
+        font-size: 39px;
+        font-weight: 800;
+        line-height: 39px;
+        letter-spacing: 0.39px;
+        margin-bottom: 20px;
+    }
+
+    &-contents {
+        border: 1px solid #f1f0f2;
+        background-color: #f9f7fa;
+        padding: 20px 30px 40px;
+        margin-top: 40px;
+        margin-bottom: 40px;
+
+        &__header {
+            color: #303030;
+            font-size: 22px;
+            font-weight: 700;
+            line-height: 39px;
+            letter-spacing: 0.22px;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        &__list {
+            padding-left: 17px;
+            color: #e31c50;
+
+            li {
+                list-style: decimal;
+
+                a {
+                    color: #e31c50;
+                    font-size: 18px;
+                    line-height: 33px;
+                    font-weight: 600;
+                    letter-spacing: 0.18px;
+                    border-bottom: 1px dashed;
+                }
+            }
+        }
+    }
+
+    &__text {
+        color: #353535;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 28px;
+        display: block;
+        margin-top: 50px;
+
+        h1,
+        h2,
+        h3 {
+            font-size: 36px;
+            font-weight: 700;
+            letter-spacing: 0.36px;
+            display: block;
+            margin: 30px 0 20px;
+        }
+
+        a {
+            color: #e31c50;
+            font-weight: 600;
+            letter-spacing: 0.18px;
         }
     }
 }
