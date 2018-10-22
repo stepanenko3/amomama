@@ -6607,6 +6607,89 @@ input:checked + .comments-form-checkbox__indicator:before {
   width: 100%;
 }
 
+.bio-buttons-row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: stretch;
+  -webkit-align-items: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 50px -10px 0;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+}
+
+.bio-buttons-row__facebook, .bio-buttons-row__email {
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 21px;
+  letter-spacing: 0.24px;
+  border: 1px solid;
+  padding: 16px 0;
+  border-radius: 3px;
+  margin: 20px 10px 0;
+  white-space: nowrap;
+}
+
+@media (max-width: 576px) {
+  .bio-buttons-row__facebook, .bio-buttons-row__email {
+    font-size: 20px;
+    padding: 14px 0;
+  }
+}
+
+.bio-buttons-row__facebook svg, .bio-buttons-row__email svg {
+  width: 29px;
+  height: 29px;
+  margin-right: 15px;
+}
+
+.bio-buttons-row__email {
+  color: #e8446f;
+  border-color: #e8446f;
+  background: #fff;
+}
+
+.bio-buttons-row__email svg,
+.bio-buttons-row__email svg * {
+  fill: #e8446f !important;
+}
+
+.bio-buttons-row__facebook {
+  color: #ffffff;
+  background-color: #3a5898;
+  border-color: #3a5898;
+}
+
+.bio-buttons-row__facebook svg,
+.bio-buttons-row__facebook svg * {
+  fill: #ffffff !important;
+}
+
 .bio__list td:first-child {
   color: #1f1f1f;
   font-size: 18px;

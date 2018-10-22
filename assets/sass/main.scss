@@ -2600,6 +2600,65 @@ img {
         }
     }
 
+    &-buttons-row {
+        display: flex;
+        align-items: stretch;
+        justify-content: space-between;
+        margin: 50px -10px 0;
+        flex-wrap: wrap;
+
+        &__facebook,
+        &__email {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-grow: 1;
+            font-size: 24px;
+            font-weight: 700;
+            line-height: 21px;
+            letter-spacing: 0.24px;
+            border: 1px solid;
+            padding: 16px 0;
+            border-radius: 3px;
+            margin: 20px 10px 0;
+            white-space: nowrap;
+
+            @media(max-width: map-get($grid-breakpoints, sm)) {
+                font-size: 20px;
+                padding: 14px 0;
+            }
+
+            svg {
+                width: 29px;
+                height: 29px;
+                margin-right: 15px;
+            }
+        }
+
+        &__email {
+            color: #e8446f;
+            border-color: #e8446f;
+            background: #fff;
+
+            svg,
+            svg * {
+                fill: #e8446f !important;
+            }
+        }
+
+        &__facebook {
+            color: #ffffff;
+            background-color: #3a5898;
+            border-color: #3a5898;
+
+            svg,
+            svg * {
+                fill: #ffffff !important;
+            }
+        }
+    }
+
     &__list {
         td:first-child {
             color: #1f1f1f;
