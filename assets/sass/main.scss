@@ -354,6 +354,7 @@ img {
             }
 
             li {
+                position: relative;
                 list-style: none;
                 flex-grow: 1;
             }
@@ -375,15 +376,19 @@ img {
                     content: '';
                     position: absolute;
                     top: 100%;
+                    left: 0;
+                    right: 0;
+                    margin: 0 auto;
                     width: 50%;
                     height: 2px;
                     background: #e31c50;
                     opacity: 0;
                     transition: all .3s;
+                    justify-self: center;
                 }
             }
 
-            li:hover a,
+            li:hover>a,
             li a.active {
                 color: #e31c50;
 
@@ -391,6 +396,50 @@ img {
                     width: 100%;
                     opacity: 1;
                 }
+            }
+        }
+
+        &-menu li:hover > &-menu {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+            transform: translate3d(0, 0, 0);
+        }
+
+        &-menu &-menu {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            padding: 15px 0;
+            position: absolute;
+            transform: translate3d(0, 30px, 0);
+            top: calc(100% + 2px);
+            left: 0;
+            right: 0;
+            width: 200px;
+            box-shadow: 0 0 10px rgba(117, 117, 117, 0.09);
+            background-color: #f2f2f2;
+            flex-direction: column;
+            z-index: 50;
+            transition: all .4s cubic-bezier(.175,.885,.32,1.275);
+
+            li {
+                width: 100%;
+
+                a {
+                    text-align: left;
+                    justify-content: flex-start;
+                    height: 40px;
+
+                    &:before {
+                        display: none;
+                    }
+                }
+            }
+
+            li:hover>a,
+            li a.active {
+                background-color: #f7f7f7;
             }
         }
     }
@@ -1702,6 +1751,10 @@ img {
 .footer {
     display: block;
     padding-bottom: 30px;
+
+    .nav-bottom-menu a:before {
+        display: none;
+    }
 
     &-top {
         display: flex;
