@@ -103,6 +103,11 @@ img {
     max-width: 100%;
 }
 
+input[type="checkbox"]:checked+.search-popup {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
 .search-popup {
     position: fixed;
     top: 0;
@@ -118,12 +123,6 @@ img {
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-
-    &--open {
-        opacity: 1;
-        visibility: visible;
-        pointer-events: auto;
-    }
 
     &__content {
         position: relative;
@@ -171,7 +170,7 @@ img {
 
     &__close {
         position: absolute;
-        top: 0;
+        top: -50px;
         right: 0;
         cursor: pointer;
 
@@ -202,7 +201,12 @@ img {
         }
     }
 }
-
+#navMenuState, #searchState {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
 .nav {
     position: relative;
     display: block;
@@ -260,9 +264,15 @@ img {
             background-color: #f2f2f2;
             padding: 10px 40px 10px 20px;
             z-index: 100;
+            width: 150px;
 
             ul {
                 li {
+                    &:hover > a,
+                    &.active > a {
+                        font-weight: bold;
+                    }
+
                     a {
                         display: flex;
                         align-items: center;
@@ -276,7 +286,7 @@ img {
                         letter-spacing: 0.33px;
 
                         img {
-                            height: 15px;
+                            width: 17px;
                             margin-right: 7px;
                         }
                     }
@@ -296,6 +306,14 @@ img {
         display: block;
         padding-left: 20px;
         transition: all .4s;
+
+        svg {
+            height: 30px;
+        }
+
+        svg, svg * {
+            fill: #e31c50;
+        }
 
         &:hover {
             opacity: .7;
@@ -399,7 +417,7 @@ img {
             }
         }
 
-        &-menu li:hover > &-menu {
+        &-menu li:hover>&-menu {
             opacity: 1;
             visibility: visible;
             pointer-events: auto;
@@ -421,7 +439,7 @@ img {
             background-color: #f2f2f2;
             flex-direction: column;
             z-index: 50;
-            transition: all .4s cubic-bezier(.175,.885,.32,1.275);
+            transition: all .4s cubic-bezier(.175, .885, .32, 1.275);
 
             li {
                 width: 100%;
@@ -464,6 +482,13 @@ img {
         }
     }
 
+    input[type="checkbox"]:checked+&-menu {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translate3d(0, 0, 0);
+    }
+
     &-menu {
         position: fixed;
         box-shadow: 3px 1px 9px rgba(0, 0, 0, 0.32);
@@ -480,13 +505,6 @@ img {
         transform: translate3d(0, -50px, 0);
         pointer-events: none;
         transition: all .4s cubic-bezier(.175, .885, .32, 1.275);
-
-        &--open {
-            opacity: 1;
-            visibility: visible;
-            pointer-events: auto;
-            transform: translate3d(0, 0, 0);
-        }
 
         &__close {
             position: absolute;
@@ -656,6 +674,17 @@ img {
 
     &__item {
         position: relative;
+        display: block;
+
+        img {
+            height: 500px;
+            width: 100%;
+            object-fit: cover;
+
+            @media(max-width: map-get($grid-breakpoints, sm)) {
+                height: 250px;
+            }
+        }
     }
 
     &__content {
@@ -809,6 +838,12 @@ img {
         display: block;
         margin-bottom: 10px;
         transition: all .4s cubic-bezier(.175, .885, .32, 1.275);
+        height: 250px;
+        object-fit: cover;
+
+        @media(max-width: map-get($grid-breakpoints, sm)) {
+            height: 100px;
+        }
     }
 
     &__line {
@@ -897,9 +932,11 @@ img {
 .article-big {
     &__image {
         margin-bottom: 20px;
+        height: 350px;
 
-        @media(max-width: map-get($grid-breakpoints, md)) {
+        @media(max-width: map-get($grid-breakpoints, sm)) {
             margin-bottom: 10px;
+            height: 100px;
         }
     }
 
@@ -1066,7 +1103,7 @@ img {
 
     img {
         display: block;
-        min-height: 175px;
+        height: 175px;
         object-fit: cover;
     }
 
@@ -1255,7 +1292,24 @@ img {
 
 .videos-slider {
 
+    &--flex {
+        display: flex;
+        align-items: stretch;
+        justify-content: space-between;
+
+        @media(max-width: map-get($grid-breakpoints, sm)) {
+            flex-wrap: wrap;
+        }
+
+        > * {
+            flex-grow: 1;
+            margin-right: 30px;
+            margin-bottom: 20px;
+        }
+    }
+
     &__item {
+        position: relative;
         cursor: pointer;
         opacity: 0;
         transform: translate3d(0, 50px, 0);
@@ -1297,6 +1351,7 @@ img {
     }
 
     &__image {
+        margin: 0;
         position: relative;
         display: block;
         box-shadow: 0 15px 39px -15px rgba(50, 50, 50, 0.69);
@@ -1305,6 +1360,9 @@ img {
 
         img {
             display: block;
+            height: 225px;
+            object-fit: cover;
+            width: 100%;
         }
     }
 
@@ -1341,11 +1399,28 @@ img {
 }
 
 .most-commented-slider {
+    &--flex {
+        display: flex;
+        align-items: stretch;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+        > * {
+            flex-grow: 1;
+            margin-right: 30px;
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+
     &__item {
         cursor: pointer;
         opacity: 0;
         transform: translate3d(0, 50px, 0);
         transition: all .4s cubic-bezier(.175, .885, .32, 1.275);
+        margin-bottom: 30px;
 
         &:first-child {
             margin-left: 0;
@@ -1358,13 +1433,17 @@ img {
     }
 
     &__image {
+        position: relative;
         display: block;
         box-shadow: 0 15px 39px -15px rgba(50, 50, 50, 0.69);
-        margin-bottom: 30px;
         border-top: 2px solid #e31c50;
+        margin: 0;
 
         img {
             display: block;
+            width: 100%;
+            height: 225px;
+            object-fit: cover;
         }
     }
 
@@ -2019,6 +2098,8 @@ img {
 
         img {
             display: block;
+            height: 100px;
+            object-fit: cover;
         }
     }
 
@@ -2672,6 +2753,12 @@ img {
         img {
             display: block;
             width: 100%;
+            height: 375px;
+            object-fit: cover;
+
+            @media(max-width: map-get($grid-breakpoints, sm)) {
+                height: 300px;
+            }
         }
     }
 
