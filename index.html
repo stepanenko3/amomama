@@ -29,9 +29,10 @@
         <div class="container">
             <div class="nav__i">
                 <div class="nav-top">
-                    <div class="nav-select dd">
-                        <div class="nav-select__trigger dd-trigger">USA EDITIOn</div>
-                        <div class="nav-select__dd dd-content">
+                    <div class="nav-select">
+                        <label class="nav-select__trigger" for="navSelectState">USA EDITIOn</label>
+                        <input type="checkbox" id="navSelectState" />
+                        <div class="nav-select__dd">
                             <ul>
                                 <li>
                                     <a href="/"><img src="/assets/icons/ff.png" /> France</a>
@@ -225,9 +226,11 @@
                     </form>
 
                     <ul class="nav-menu__list">
-                        <li class="nav-menu__item nav-menu__item--has-children nav-menu__item--open">
-                            <a href="/" class="nav-menu__link">Home <span></span></a>
-
+                        <li class="nav-menu__item nav-menu__item--has-children">
+                            <input type="checkbox" id="navMenuItem01" checked />
+                            <label class="nav-menu__link" for="navMenuItem01">
+                                Home <span></span>
+                            </label>
                             <ul class="nav-menu__list">
                                 <li class="nav-menu__item">
                                     <a href="/" class="nav-menu__link">Home</a>
@@ -244,7 +247,10 @@
                             <a href="/" class="nav-menu__link">Home</a>
                         </li>
                         <li class="nav-menu__item nav-menu__item--has-children">
-                            <a href="/" class="nav-menu__link">Home</a>
+                            <input type="checkbox" id="navMenuItem02" />
+                            <label class="nav-menu__link" for="navMenuItem02">
+                                Home <span></span>
+                            </label>
 
                             <ul class="nav-menu__list">
                                 <li class="nav-menu__item">
@@ -378,13 +384,33 @@
                     <li><a href="/" class="nav-bottom-menu__link">Shop</a></li>
                 </ul>
 
+                <div class="nav-dd">
+                    <label for="navDdState" class="nav-dd__trigger">edition</label>
+                    <input type="checkbox" id="navDdState" />
+                    <div class="nav-dd__content">
+                        <ul>
+                            <li>
+                                <a href="/"><img src="/assets/icons/ff.png" /> France</a>
+                            </li>
+                            <li>
+                                <a href="/"><img src="/assets/icons/fg.png" /> Germany</a>
+                            </li>
+                            <li>
+                                <a href="/"><img src="/assets/icons/fs.png" /> Spain</a>
+                            </li>
+                            <li>
+                                <a href="/"><img src="/assets/icons/fw.png" /> World</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
                 <label class="nav-icon" for="searchState">
                     <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                         x="0px" y="0px" viewBox="0 0 451 451" style="enable-background:new 0 0 451 451;" xml:space="preserve">
                         <path d="M447.05,428l-109.6-109.6c29.4-33.8,47.2-77.9,47.2-126.1C384.65,86.2,298.35,0,192.35,0C86.25,0,0.05,86.3,0.05,192.3
-                               s86.3,192.3,192.3,192.3c48.2,0,92.3-17.8,126.1-47.2L428.05,447c2.6,2.6,6.1,4,9.5,4s6.9-1.3,9.5-4
-                               C452.25,441.8,452.25,433.2,447.05,428z M26.95,192.3c0-91.2,74.2-165.3,165.3-165.3c91.2,0,165.3,74.2,165.3,165.3
-                               s-74.1,165.4-165.3,165.4C101.15,357.7,26.95,283.5,26.95,192.3z" />
+                                   s86.3,192.3,192.3,192.3c48.2,0,92.3-17.8,126.1-47.2L428.05,447c2.6,2.6,6.1,4,9.5,4s6.9-1.3,9.5-4
+                                   C452.25,441.8,452.25,433.2,447.05,428z M26.95,192.3c0-91.2,74.2-165.3,165.3-165.3c91.2,0,165.3,74.2,165.3,165.3
+                                   s-74.1,165.4-165.3,165.4C101.15,357.7,26.95,283.5,26.95,192.3z" />
                     </svg>
                 </label>
             </div>
@@ -806,15 +832,14 @@
             <div class="most-commented-container">
                 <div class="page-title">Most commented</div>
                 <noscript>
-                    
-                <div class="most-commented-slider most-commented-slider--flex active">
+                    <div class="most-commented-slider most-commented-slider--flex active">
                         <div class="most-commented-slider__item">
                             <img src="/assets/img/Layer_2.png" class="most-commented-slider__image" />
                             <div class="most-commented-slider__content">
                                 <div class="most-commented-slider__header">
                                     Quiz: How well do you know Blake Shelton?
                                 </div>
-    
+
                                 <div class="most-commented-slider__comments">
                                     <span>
                                         <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -833,7 +858,7 @@
                                 <div class="most-commented-slider__header">
                                     Quiz: How well do you know Blake Shelton?
                                 </div>
-    
+
                                 <div class="most-commented-slider__comments">
                                     <span>
                                         <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -852,7 +877,7 @@
                                 <div class="most-commented-slider__header">
                                     Quiz: How well do you know Blake Shelton?
                                 </div>
-    
+
                                 <div class="most-commented-slider__comments">
                                     <span>
                                         <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -1510,13 +1535,13 @@
     <script src="https://apis.google.com/js/platform.js"></script>
 
     <script>
-        function toggleNavMenu() {
-            jQuery('.nav-menu').toggleClass('nav-menu--open');
-        }
+        // function toggleNavMenu() {
+        //     jQuery('.nav-menu').toggleClass('nav-menu--open');
+        // }
 
-        function toggleSearch() {
-            jQuery('.search-popup').toggleClass('search-popup--open');
-        }
+        // function toggleSearch() {
+        //     jQuery('.search-popup').toggleClass('search-popup--open');
+        // }
 
         jQuery(document).ready(function () {
             const navScroll$ = jQuery('.nav-scroll');
@@ -1575,22 +1600,22 @@
                 ]
             });
 
-            jQuery('.nav-menu .nav-menu__item--has-children > .nav-menu__link').on('click', function (e) {
-                e.preventDefault();
+            // jQuery('.nav-menu .nav-menu__item--has-children > .nav-menu__link').on('click', function (e) {
+            //     e.preventDefault();
 
-                if (jQuery(this).parents('.nav-menu__item').hasClass('nav-menu__item--open')) {
-                    jQuery('.nav-menu .nav-menu__item').removeClass('nav-menu__item--open');
-                } else {
-                    jQuery('.nav-menu .nav-menu__item').removeClass('nav-menu__item--open');
-                    jQuery(this).parents('.nav-menu__item').toggleClass('nav-menu__item--open');
-                }
-            });
+            //     if (jQuery(this).parents('.nav-menu__item').hasClass('nav-menu__item--open')) {
+            //         jQuery('.nav-menu .nav-menu__item').removeClass('nav-menu__item--open');
+            //     } else {
+            //         jQuery('.nav-menu .nav-menu__item').removeClass('nav-menu__item--open');
+            //         jQuery(this).parents('.nav-menu__item').toggleClass('nav-menu__item--open');
+            //     }
+            // });
 
-            jQuery('.dd > .dd-trigger').on('click', function (e) {
-                e.preventDefault();
+            // jQuery('.dd > .dd-trigger').on('click', function (e) {
+            //     e.preventDefault();
 
-                jQuery(this).parents('.dd').toggleClass('open');
-            });
+            //     jQuery(this).parents('.dd').toggleClass('open');
+            // });
         });
     </script>
 </body>
