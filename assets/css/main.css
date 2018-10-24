@@ -4193,6 +4193,9 @@ input[type="checkbox"]:checked + .nav-menu {
   z-index: 1000;
   -webkit-transform: translate3d(0, -100%, 0);
           transform: translate3d(0, -100%, 0);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
   -webkit-transition: all .25s;
   -o-transition: all .25s;
   transition: all .25s;
@@ -4212,6 +4215,9 @@ input[type="checkbox"]:checked + .nav-menu {
 .nav-scroll--fixed {
   -webkit-transform: translate3d(0, 0, 0);
           transform: translate3d(0, 0, 0);
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
 }
 
 .nav-scroll__i {
