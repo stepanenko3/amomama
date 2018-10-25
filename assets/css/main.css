@@ -3473,16 +3473,136 @@ input[type="checkbox"]:checked + .search-popup {
 
 .nav {
   position: relative;
+}
+
+.nav-cookie {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  -webkit-box-shadow: 0 3px 19px rgba(0, 0, 0, 0.11);
+          box-shadow: 0 3px 19px rgba(0, 0, 0, 0.11);
+  background-color: #e1d3f0;
+  padding: 30px 0;
+  z-index: 2;
+}
+
+@media (max-width: 768px) {
+  .nav-cookie {
+    padding: 10px 0;
+  }
+}
+
+.nav-cookie__i {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+@media (max-width: 768px) {
+  .nav-cookie__i {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-cookie__icon {
+    display: none;
+  }
+}
+
+.nav-cookie__icon svg {
+  height: 67px;
+  width: 67px;
+}
+
+.nav-cookie__text {
+  color: #76717d;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 26px;
+  letter-spacing: 0.45px;
+  display: block;
+  margin: 0 50px;
+}
+
+@media (max-width: 768px) {
+  .nav-cookie__text {
+    margin: 0;
+    font-size: 12px;
+    line-height: 1.3;
+    margin-bottom: 5px;
+  }
+}
+
+.nav-cookie__text b {
+  font-weight: 700;
+}
+
+.nav-cookie__text a {
+  color: #e31c50;
+  font-weight: 700;
+}
+
+.nav-cookie__btn {
+  padding: 0 50px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 44px;
+  background-color: #e31c50;
+  color: #f4f4f4;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 26px;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .nav-cookie__btn {
+    height: 24px;
+    font-size: 14px;
+    padding: 0 20px;
+  }
+}
+
+.nav__content {
+  position: relative;
   display: block;
   border-bottom: 2px solid #ecebed;
 }
 
 @media (max-width: 576px) {
-  .nav {
+  .nav__content {
     position: absolute;
     top: 0;
-    overflow: 0;
+    opacity: 0;
     visibility: hidden;
+    pointer-events: none;
   }
 }
 
