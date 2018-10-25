@@ -314,7 +314,7 @@
                         your settings confirms your accaptance of these cookies. For details of how to change
                         your settings, please see our <a href="/">privacy policy</a>.
                     </div>
-                    <div class="nav-cookie__btn">
+                    <div class="nav-cookie__btn" onclick="closeCookie()">
                         Got it!
                     </div>
                 </div>
@@ -673,6 +673,10 @@
                 if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
             }
             return null;
+        }
+
+        function closeCookie() {
+            jQuery('#navCookie').hide();
         }
 
         jQuery(document).ready(function () {
