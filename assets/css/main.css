@@ -4211,6 +4211,9 @@ input[type="checkbox"]:checked + .nav-menu {
   .nav-scroll {
     -webkit-transform: translate3d(0, 0, 0);
             transform: translate3d(0, 0, 0);
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
   }
 }
 
@@ -7666,4 +7669,94 @@ input[type="checkbox"]:checked + .subscribe-popup {
   font-weight: 300;
   line-height: 26px;
   letter-spacing: 0.3px;
+}
+
+.page-404 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.page-404__code {
+  color: #484848;
+  font-size: 200px;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: 2.33px;
+}
+
+@media (max-width: 768px) {
+  .page-404__code {
+    font-size: 150px;
+  }
+}
+
+.page-404__title {
+  color: #696969;
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 1;
+  text-align: center;
+  letter-spacing: 1px;
+  margin-bottom: 30px;
+}
+
+.page-404__text {
+  color: #484848;
+  font-size: 27px;
+  font-weight: 300;
+  line-height: 1.3;
+  letter-spacing: 0.68px;
+  display: block;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+@media (max-width: 768px) {
+  .page-404__text {
+    font-size: 24px;
+  }
+}
+
+.page-404__btn {
+  height: 59px;
+  background-color: #e31c50;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 0 50px;
+  color: #ffffff;
+  font-size: 29px;
+  font-weight: 600;
+  line-height: 32px;
+  letter-spacing: 0.72px;
+}
+
+@media (max-width: 768px) {
+  .page-404__btn {
+    font-size: 24px;
+  }
 }
