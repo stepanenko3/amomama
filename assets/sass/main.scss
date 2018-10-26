@@ -26,6 +26,16 @@
     display: none;
 }
 
+
+.subscribe-popup, .search-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
 @mixin retina {
 
     @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 1300px),
