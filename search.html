@@ -499,7 +499,10 @@
                     <div class="col-md-4">
                         <div class="article">
                             <a href="/">
-                                <img class="article__image" src="/assets/img/Layer_6.png" />
+                                <img src="/assets/icons/1.svg" class="article__image lazy" data-src="/assets/img/Layer_6.png">
+                                <noscript>
+                                    <img class="article__image" src="/assets/img/Layer_6.png" />
+                                </noscript>
                             </a>
                             <div class="article__line">
                                 <a herf="/">Fashion</a>
@@ -513,7 +516,10 @@
                     <div class="col-md-4">
                         <div class="article">
                             <a href="/">
-                                <img class="article__image" src="/assets/img/Layer_6.png" />
+                                <img src="/assets/icons/1.svg" class="article__image lazy" data-src="/assets/img/Layer_6.png">
+                                <noscript>
+                                    <img class="article__image" src="/assets/img/Layer_6.png" />
+                                </noscript>
                             </a>
                             <div class="article__line">
                                 <a herf="/">Fashion</a>
@@ -527,7 +533,10 @@
                     <div class="col-md-4">
                         <div class="article">
                             <a href="/">
-                                <img class="article__image" src="/assets/img/Layer_6.png" />
+                                <img src="/assets/icons/1.svg" class="article__image lazy" data-src="/assets/img/Layer_6.png">
+                                <noscript>
+                                    <img class="article__image" src="/assets/img/Layer_6.png" />
+                                </noscript>
                             </a>
                             <div class="article__line">
                                 <a herf="/">Fashion</a>
@@ -541,7 +550,10 @@
                     <div class="col-md-4">
                         <div class="article">
                             <a href="/">
-                                <img class="article__image" src="/assets/img/Layer_6.png" />
+                                <img src="/assets/icons/1.svg" class="article__image lazy" data-src="/assets/img/Layer_6.png">
+                                <noscript>
+                                    <img class="article__image" src="/assets/img/Layer_6.png" />
+                                </noscript>
                             </a>
                             <div class="article__line">
                                 <a herf="/">Fashion</a>
@@ -555,7 +567,10 @@
                     <div class="col-md-4">
                         <div class="article">
                             <a href="/">
-                                <img class="article__image" src="/assets/img/Layer_6.png" />
+                                <img src="/assets/icons/1.svg" class="article__image lazy" data-src="/assets/img/Layer_6.png">
+                                <noscript>
+                                    <img class="article__image" src="/assets/img/Layer_6.png" />
+                                </noscript>
                             </a>
                             <div class="article__line">
                                 <a herf="/">Fashion</a>
@@ -569,7 +584,10 @@
                     <div class="col-md-4">
                         <div class="article">
                             <a href="/">
-                                <img class="article__image" src="/assets/img/Layer_6.png" />
+                                <img src="/assets/icons/1.svg" class="article__image lazy" data-src="/assets/img/Layer_6.png">
+                                <noscript>
+                                    <img class="article__image" src="/assets/img/Layer_6.png" />
+                                </noscript>
                             </a>
                             <div class="article__line">
                                 <a herf="/">Fashion</a>
@@ -583,7 +601,10 @@
                     <div class="col-md-4">
                         <div class="article">
                             <a href="/">
-                                <img class="article__image" src="/assets/img/Layer_6.png" />
+                                <img src="/assets/icons/1.svg" class="article__image lazy" data-src="/assets/img/Layer_6.png">
+                                <noscript>
+                                    <img class="article__image" src="/assets/img/Layer_6.png" />
+                                </noscript>
                             </a>
                             <div class="article__line">
                                 <a herf="/">Fashion</a>
@@ -597,7 +618,10 @@
                     <div class="col-md-4">
                         <div class="article">
                             <a href="/">
-                                <img class="article__image" src="/assets/img/Layer_6.png" />
+                                <img src="/assets/icons/1.svg" class="article__image lazy" data-src="/assets/img/Layer_6.png">
+                                <noscript>
+                                    <img class="article__image" src="/assets/img/Layer_6.png" />
+                                </noscript>
                             </a>
                             <div class="article__line">
                                 <a herf="/">Fashion</a>
@@ -611,7 +635,10 @@
                     <div class="col-md-4">
                         <div class="article">
                             <a href="/">
-                                <img class="article__image" src="/assets/img/Layer_6.png" />
+                                <img src="/assets/icons/1.svg" class="article__image lazy" data-src="/assets/img/Layer_6.png">
+                                <noscript>
+                                    <img class="article__image" src="/assets/img/Layer_6.png" />
+                                </noscript>
                             </a>
                             <div class="article__line">
                                 <a herf="/">Fashion</a>
@@ -963,11 +990,30 @@
         </form>
     </div>
 
+    <link rel="stylesheet" type="text/css" href="/assets/css/main.other.min.css" />
     <script src="//code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 
     <script>
+        (function (w, d) {
+            w.addEventListener('LazyLoad::Initialized', function (e) {
+                w.lazyLoadInstance = e.detail.instance;
+            }, false);
+
+            var b = d.getElementsByTagName('body')[0];
+            var s = d.createElement("script");
+            s.async = true;
+            var v = !("IntersectionObserver" in w) ? "8.16.0" : "10.19.0";
+            s.src = "https://cdn.jsdelivr.net/npm/vanilla-lazyload@" + v + "/dist/lazyload.min.js";
+            w.lazyLoadOptions = {
+                elements_selector: ".lazy"
+            };
+            b.appendChild(s);
+        }(window, document));
+
+        document.body.classList.remove('no-js');
+
         // function toggleNavMenu() {
         //     jQuery('.nav-menu').toggleClass('nav-menu--open');
         // }
