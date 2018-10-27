@@ -475,7 +475,7 @@
             </div>
 
             <div class="row justify-content-center">
-                <div class="col-lg-8 col-md-7">
+                <div class="col-lg-8 col-md-7 article-cards-list">
                     <article class="article-page">
                         <div class="page-title-3">
                             Congrats! Zoe Saldana Receives Her
@@ -1759,23 +1759,25 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jsSocials/1.5.0/jssocials.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/emojionearea/3.4.1/emojionearea.min.js"></script>
+    <script src="https://unpkg.com/infinite-scroll@3/dist/infinite-scroll.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@8.17.0/dist/lazyload.min.js"></script>
+
 
     <script>
-        (function (w, d) {
-            w.addEventListener('LazyLoad::Initialized', function (e) {
-                w.lazyLoadInstance = e.detail.instance;
-            }, false);
-
-            var b = d.getElementsByTagName('body')[0];
-            var s = d.createElement("script");
-            s.async = true;
-            var v = !("IntersectionObserver" in w) ? "8.16.0" : "10.19.0";
-            s.src = "https://cdn.jsdelivr.net/npm/vanilla-lazyload@" + v + "/dist/lazyload.min.js";
-            w.lazyLoadOptions = {
-                elements_selector: ".lazy"
-            };
-            b.appendChild(s);
-        }(window, document));
+        (function() {
+            function logElementEvent(eventName, element) {
+				console.log(new Date().getTime(), eventName, element.getAttribute('data-src'));
+            }
+            
+        ll = new LazyLoad({
+            elements_selector: ".lazy",
+            callback_load: function (element) {
+					logElementEvent("LOADED", element);
+				},
+				callback_set: function (element) {
+					logElementEvent("SET", element);
+				}
+        });
 
         document.body.classList.remove('no-js');
 
@@ -1786,6 +1788,23 @@
         // function toggleSearch() {
         //     jQuery('.search-popup').toggleClass('search-popup--open');
         // }
+
+        var infScroll = new InfiniteScroll('.article-cards-list', {
+            path: '/assets/article.html?p={{#}}',
+            append: 'article',
+            history: false,
+            onInit: function () {
+                this.on('load', function () {
+                    setTimeout(function() {
+                        ll.update();
+                    }, 100);
+                });
+            }
+            // debug: true,
+            // responseType: 'text',
+        });
+        }());
+        
 
         function setCookie(name, value, days) {
             var expires = "";
